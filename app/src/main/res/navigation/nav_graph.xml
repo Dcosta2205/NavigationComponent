@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentMain">
+
+    <fragment
+        android:id="@+id/fragmentMain"
+        android:name="com.xyz.navigationcomponent.FragmentMain"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentViewTransaction"
+            app:destination="@id/fragmentViewTransaction" />
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentChooseRecipient"
+            app:destination="@id/fragmentChooseRecipient" />
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentViewBalance"
+            app:destination="@id/fragmentViewBalance" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentViewTransaction"
+        android:name="com.xyz.navigationcomponent.FragmentViewTransaction"
+        android:label="fragment_view_transcation"
+        tools:layout="@layout/fragment_view_transcation" />
+
+    <fragment
+        android:id="@+id/fragmentSpecifyAmount"
+        android:name="com.xyz.navigationcomponent.FragmentSpecifyAmount"
+        android:label="FragmentSpecifyAmount">
+
+        <argument
+            android:name="recipient"
+            android:defaultValue="none" />
+        <action
+            android:id="@+id/action_fragmentSpecifyAmount_to_fragmentConfirmation"
+            app:destination="@id/fragmentConfirmation" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentConfirmation"
+        android:name="com.xyz.navigationcomponent.FragmentConfirmation"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation" />
+
+    <fragment
+        android:id="@+id/fragmentViewBalance"
+        android:name="com.xyz.navigationcomponent.FragmentViewBalance"
+        android:label="fragment_view_balance"
+        tools:layout="@layout/fragment_view_balance" />
+
+    <fragment
+        android:id="@+id/fragmentChooseRecipient"
+        android:name="com.xyz.navigationcomponent.FragmentChooseRecipient"
+        android:label="fragment_specify_amount"
+        tools:layout="@layout/fragment_specify_amount">
+
+        <action
+            android:id="@+id/action_fragmentChooseRecipient_to_fragmentSpecifyAmount"
+            app:destination="@id/fragmentSpecifyAmount" />
+    </fragment>
+</navigation>
